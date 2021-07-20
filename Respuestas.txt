@@ -1,0 +1,26 @@
+Pregunta A: Describe las ventajas e inconvenientes de cada uno de los métodos para acceder a datos vistos en el Ejercicio 1
+
+get:
+ 		+ Los resultados se obtienen bastante rapido y facil sobre las entidades.
+ 		- No se puede programar consultas compuestas.
+sql:
+ 		+ El SQL nativo suele ser más rápido
+ 		- El código SQL tradicional es más largo que el código HQL. SQL tiene una interfaz compleja en comparación con la interfaz OOP fácil de usar en la que se basa HQL. no admite funciones de programación orientada a objetos como polimorfismo, herencia y asociación.La sintaxis SQL puede variar según el proveedor de la base de datos (Oracle, MySQL)
+hql:
+ 		+ Las consultas de hql son ideales para consultas estaticas.No depende de nombre de la tabla.Puede realizar operaciones select y non-select. Admite conceptos como polimorfismo, herencia, asociación, etc.Permite modificar los datos mediante la inserción, actualización y eliminación de consultas.
+ 		- No soporta pagination. suele ser más lento ya que su tiempo de ejecución se basa en el mapeo, pero su velocidad se puede aumentar configurando el tamaño de caché correcto del plan de consulta
+criteria:
+ 		+ Las consultas de criteria son ideales para consultas dinamicas.Soporta pagination. 
+ 		- JPA no admite consultas de criteria.En comparacion con hql,criteria solo puede realizar select operations.
+
+
+Pregunta B: ¿En qué contexto piensas que es más adecuado cada uno de estos métodos?
+
+get: para sacar una fila/columna de una tabla que no sea relaccionada con otras.
+sql: cuando se quiere expresar consultas de base de datos si desea utilizar características específicas de la base de datos
+hql: se usa para consultas estáticas y complejas, porque es mucho más fácil de entender / leer.
+criteria: se usa para crear consultas dinámicas.
+
+Pregunta C: ¿Qué método de acceso a datos piensas que es más eficiente?
+
+Se recomenda usar HQL siempre que sea posible para evitar problemas de portabilidad de bases de datos y aprovechar las estrategias de generación de SQL y almacenamiento en caché de Hibernate.
